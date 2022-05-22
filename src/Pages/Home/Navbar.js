@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ children }) => {
     return (
@@ -16,7 +16,7 @@ const Navbar = ({ children }) => {
                     <div class="flex-none hidden lg:block">
                         <ul class="menu menu-horizontal gap-x-3">
                             <li><NavLink className='rounded-lg ' to=''>Home</NavLink></li>
-                            <li><Link className='rounded-lg ' to=''>My orders</Link></li>
+                            <li><NavLink className='rounded-lg ' to='/login'>Login</NavLink></li>
                         </ul>
                     </div>
                 </div>
@@ -27,8 +27,8 @@ const Navbar = ({ children }) => {
                 <label for="my-drawer-3" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
                     Sidebar content here
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    <li><NavLink>Sidebar Item 1</NavLink></li>
+                    <li><NavLink>Sidebar Item 2</NavLink></li>
 
                 </ul>
 

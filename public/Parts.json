@@ -4,7 +4,7 @@
         "name": "STEELMAX METAL CUTTING SAW 9 INCH",
         "img": "https://www.aircraftspruce.com/catalog/graphics/07-00788n.jpg",
         "ShortDes": "A B CB D F G H ",
-        "minimum-or": 50,
+        "minimumOr": 50,
         "available": 1300,
         "ppu": 400
     },
@@ -13,7 +13,7 @@
         "name": "ATS AIR POWER RECIPROCATING SAW KIT",
         "img": "https://www.aircraftspruce.com/catalog/graphics/07-00788n.jpg",
         "ShortDes": "A B CB D F G H ",
-        "minimum-or": 100,
+        "minimumOr": 100,
         "available": 2000,
         "ppu": 100
     },
@@ -22,7 +22,7 @@
         "name": "BOSCH TOP HANDLE JIGSAW",
         "img": "https://www.aircraftspruce.com/catalog/graphics/07-00788n.jpg",
         "ShortDes": "A B CB D F G H ",
-        "minimum-or": 100,
+        "minimumOr": 100,
         "available": 1700,
         "ppu": 180
     },
@@ -31,7 +31,7 @@
         "name": "ATS 900 ANGLE AIR DRILL",
         "img": "https://www.aircraftspruce.com/catalog/graphics/07-00788n.jpg",
         "ShortDes": "A B CB D F G H ",
-        "minimum-or": 50,
+        "minimumOr": 50,
         "available": 1200,
         "ppu": 270
     },
@@ -40,7 +40,7 @@
         "name": "FELCO CABLE CUTTERS",
         "img": "https://www.aircraftspruce.com/catalog/graphics/07-00788n.jpg",
         "ShortDes": "A B CB D F G H ",
-        "minimum-or": 150,
+        "minimumOr": 150,
         "available": 1500,
         "ppu": 80
     },
@@ -49,7 +49,7 @@
         "name": "SLICK MAGNETO ASSEMBLY AND TIMING KIT - T-100",
         "img": "https://www.aircraftspruce.com/catalog/graphics/07-00788n.jpg",
         "ShortDes": "A B CB D F G H ",
-        "minimum-or": 20,
+        "minimumOr": 20,
         "available": 500,
         "ppu": 1100
     }

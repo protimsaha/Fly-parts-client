@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Tool from './Tool';
 
 const Tools = () => {
     const [tools, setTools] = useState([])
@@ -9,8 +10,8 @@ const Tools = () => {
             .then(data => setTools(data))
     }, [])
     return (
-        <div>
-            {tools.length}
+        <div className='grid md:grid-cols-2 sm:grid-cols-1 gap-y-10'>
+            {tools.map(tool => <Tool key={tool.id} tool={tool}></Tool>)}
         </div>
     );
 };
