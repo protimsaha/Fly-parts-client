@@ -1,101 +1,129 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-// import auth from '../Firebase.init';
-// import Loading from '../Loading';
-// import axios from 'axios';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from './Firebase.init';
 import Loading from '../Shared/Loading';
-// import PageTitle from '../../Shared/PageTitle/PageTitle';
+import { useForm } from 'react-hook-form';
+import useToken from '../Shared/useToken';
 
 
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
+    let from = location.state?.from?.pathname || "/";
+    const [signInWithGoogle, googleUser, googleLoading, gError] = useSignInWithGoogle(auth);
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [email, setEmail] = useState('')
-
-    // const [errorMessage, setErrorMessage] = useState('')
-
-    const [user] = useAuthState(auth);
 
     const [
         signInWithEmailAndPassword,
-        emailUser,
+        user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-
-    const handlelogInEmail = async event => {
-        event.preventDefault()
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        await signInWithEmailAndPassword(email, password)
-        // const { data } = await axios.post('https://salty-mountain-12795.herokuapp.com/login', { email });
-        // localStorage.setItem('accessToken', data.accessToken)
-        // navigate(from, { replace: true } || '/')
-    }
-
-    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
-
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
-    if (user || emailUser || googleUser || githubUser) {
-        navigate(from, { replace: true } || '/')
-    }
-    let errorElement;
-    if (googleError || githubError || error) {
-        errorElement = error?.message
-    }
-    if (googleLoading || githubLoading || loading) {
+    const [token] = useToken(googleUser || user)
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+            console.log(token)
+        }
+
+    }, [googleUser, user, navigate, from, token])
+    if (loading || googleLoading) {
         return <Loading></Loading>
     }
 
-    const handleAddEmail = event => {
-        setEmail(event.target.value)
+    let signInError;
+    if (error || gError) {
+        signInError = <p>{error?.message || gError?.message}</p>
     }
 
-    const handleResetPass = () => {
-        if (email) {
-            sendPasswordResetEmail(email)
-            toast('Password reset email sent')
-        } else {
-            toast('Please enter your email')
-        }
-    }
+    const onSubmit = (data, event) => {
+        signInWithEmailAndPassword(data.email, data.password)
+        setEmail(data.email)
+        event.target.reset()
+    };
 
     return (
-        <div className='w-50 mx-auto my-5 login-box'>
-            <h2 className='text-center my-4'>Please Login</h2>
-            <form onSubmit={handlelogInEmail} className='d-flex flex-column my-4'>
-                <input className='my-2 form-input' onBlur={handleAddEmail} type="email" name="email" id="" placeholder='Your email' />
-                <input className='my-2 form-input' type="password" name="password" id="" placeholder='Password' />
-                <input className='input-btn w-50' type="submit" value="Login" />
-            </form>
-            <p className='text-danger ms-4'>{errorElement}</p>
-            <div className='d-flex w-100 mx-4 mt-3'>
-                <p>Don't have an account?</p>
-                <Link className='link mx-2' to='/register' role={'button'}> Please register</Link>
-            </div>
-            <div className='d-flex w-100 mx-4 mt-3'>
-                <p>Forgate password?</p>
-                <p className='link mx-2' onClick={handleResetPass} role={'button'}> Reset your password</p>
-            </div>
-            <div className='d-flex align-items-center mb-4'>
-                <div className='w-50 devider bg-primary'></div>
-                <p className='mx-2 mt-3 px-4'>or</p>
-                <div className='w-50 devider bg-primary'></div>
-            </div>
-            <div onClick={() => signInWithGoogle()} className='google-box'>
-                <img className='g-img mx-3' src="https://cdn.iconscout.com/icon/free/png-256/google-1772223-1507807.png" alt="" />
-                <p className='fs-5 fw-bold mx-auto'>Continue with google</p>
-            </div>
-            <div onClick={() => signInWithGithub()} className='google-box mt-4'>
-                <img className='g-img mx-3' src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" alt="" />
-                <p className='fs-5 fw-bold mx-auto'>Continue with Github</p>
+        <div className='flex justify-center items-center h-screen'>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="text-center font-bold text-xl">Login</h2>
+
+
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text text-xl font-bold">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: 'Email is Required'
+                                    },
+                                    pattern: {
+                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                        message: 'Provide a valid Email'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            </label>
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text text-xl font-bold">Password</span>
+                            </label>
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("password", {
+                                    required: {
+                                        value: true,
+                                        message: 'Password is Required'
+                                    },
+                                    minLength: {
+                                        value: 6,
+                                        message: 'Password should be 6 charecters or longer'
+                                    }
+                                })}
+                            />
+                            <label className='label'>
+                                <span className="label-text"> Forgote password?
+                                </span>
+                                <p role='button' className='text-secondary ml-2' onClick={async () => {
+                                    await sendPasswordResetEmail(email)
+                                    toast('Password Reset email sent')
+                                }}>Reset your password</p>
+                            </label>
+
+                            <label className="label">
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                            </label>
+                        </div>
+
+                        <p className='text-red-500'>{signInError}</p>
+                        <input className='btn w-full mb-3 max-w-xs' type="submit" value='Login' />
+                        <p>Don't have an account? <Link className=' text-secondary' to='/signup'>Sign Up now</Link></p>
+                    </form>
+
+                    <div className="divider">OR</div>
+                    <button
+                        onClick={() => signInWithGoogle()}
+                        className="btn btn-outline">Continue with Google</button>
+                </div>
             </div>
         </div>
     );

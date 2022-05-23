@@ -52,7 +52,7 @@ const Purchase = () => {
             address: address,
             productName: toolDetail.name,
             orderValue: order,
-            status: 'pending'
+            status: 'unpaid'
         }
         axios.post('http://localhost:5000/orders', purchaseData)
             .then(res => console.log(res))
@@ -61,11 +61,11 @@ const Purchase = () => {
     return (
         <div className='lg:w-1/2 sm:w-full sm:px-4 mx-auto my-14 shadow-lg p-10'>
             <h2 className='text-center uppercase text-3xl text-primary font-semibold '>confirm your purchase</h2>
-            <input type="text" value={user.displayName} readOnly class="input input-bordered w-full my-2" />
-            <input type="text" value={user.email} class="input w- input-bordered w-full my-2" />
-            <input type="text" onBlur={setPhone} placeholder="Phone Number" class="input w- input-bordered w-full my-2" required />
-            <textarea onBlur={customerAddress} type="text" placeholder="Address" class="input w- input-bordered w-full my-2" required />
-            <input type="text" value={toolDetail.name} class="input w- input-bordered w-full my-2" />
+            <input type="text" value={user.displayName} readOnly className="input input-bordered w-full my-2" />
+            <input type="text" value={user.email} className="input w- input-bordered w-full my-2" />
+            <input type="text" onBlur={setPhone} placeholder="Phone Number" className="input w- input-bordered w-full my-2" required />
+            <textarea onBlur={customerAddress} type="text" placeholder="Address" className="input w- input-bordered w-full my-2" required />
+            <input type="text" value={toolDetail.name} className="input w- input-bordered w-full my-2" />
 
             <div className='flex justify-between text-xl'>
                 <p>Available quantity:</p>
@@ -81,7 +81,7 @@ const Purchase = () => {
             </div>
             <div className='flex justify-between text-xl'>
                 <p className='mt-2'>Order quantity: </p>
-                <input onBlur={orderQuantity} type="text" placeholder='Order quantity' class="input w- input-bordered w-40 my-2" />
+                <input onBlur={orderQuantity} type="text" placeholder='Order quantity' className="input w- input-bordered w-40 my-2" />
             </div>
             <button disabled={!disable} onClick={purchaseNow} className='btn text-xl mx-auto bg-gradient-to-r from-secondary to-primary items-center flex mt-8'>Purchase now</button>
         </div>

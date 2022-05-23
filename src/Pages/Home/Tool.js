@@ -7,10 +7,10 @@ const Tool = ({ tool }) => {
 
 
     return (
-        <div class="card w-96 bg-base-100 shadow-xl mx-auto">
+        <div className="card w-96 bg-base-100 shadow-xl mx-auto">
             <figure><img className='max-h-80 ' src={img} alt="Shoes" /></figure>
-            <div class="p-5">
-                <h2 class="text-2xl font-semibold text-slate-500">{name}</h2>
+            <div className="p-5">
+                <h2 className="text-2xl font-semibold text-slate-500">{name}</h2>
                 <p>{ShortDes}</p>
                 <div className='flex text-xl font-semibold  justify-between mt-3'>
                     <p>Price per unit: </p>
@@ -24,8 +24,8 @@ const Tool = ({ tool }) => {
                     <p>Available now:</p>
                     <p>{available}</p>
                 </div>
-                <div class=" mt-5">
-                    <button onClick={() => navigate(`/purchase/${_id}`)} class="btn text-xl mx-auto bg-gradient-to-r from-secondary to-primary items-center flex">place order</button>
+                <div className=" mt-5">
+                    <button onClick={() => navigate(`/purchase/${_id}`)} className="btn text-xl mx-auto bg-gradient-to-r from-secondary to-primary items-center flex">place order</button>
                 </div>
             </div>
         </div >

@@ -1,9 +1,31 @@
+import axios from 'axios';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../Auth/Firebase.init';
 
 const AddReview = () => {
+    const [user] = useAuthState(auth)
+
+    const addReview = event => {
+        event.preventDefault()
+        const review = {
+            displayName: user.displayName,
+            location: event.target.location.value,
+            review: event.target.review.value
+        }
+        axios.post('http://localhost:5000/reviews', review)
+            .then(res => console.log(res))
+        console.table(review)
+    }
     return (
         <div>
-            <h1>this is Add review</h1>
+            <h1 className='text-5xl text-center text-secondary font-semibold mt-8'>Please give us a Review</h1>
+            <form onSubmit={addReview} className='lg:w-1/2 sm:w-full sm:px-4 mx-auto my-14 shadow-lg p-10 ' >
+                <input type="text" value={user.displayName} className="input input-bordered w-full my-2" />
+                <input type="text" name='location' placeholder="Type here" className="input input-bordered w-full my-2" />
+                <textarea name='review' type="text" placeholder="Type here" className="input input-bordered w-full my-2" />
+                <input className='btn text-xl mx-auto bg-gradient-to-r from-secondary to-primary items-center flex' type="submit" value="Submit" />
+            </form>
         </div>
     );
 };
