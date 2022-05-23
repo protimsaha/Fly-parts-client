@@ -1,7 +1,12 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
+import auth from '../Auth/Firebase.init';
 
 const Navbar = ({ children }) => {
+    const [user] = useAuthState(auth)
+
     return (
         <div class="drawer drawer-end ">
             <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
@@ -15,8 +20,15 @@ const Navbar = ({ children }) => {
                     </div>
                     <div class="flex-none hidden lg:block">
                         <ul class="menu menu-horizontal gap-x-3">
-                            <li><NavLink className='rounded-lg ' to=''>Home</NavLink></li>
-                            <li><NavLink className='rounded-lg ' to='/login'>Login</NavLink></li>
+                            <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
+                            <li><NavLink className='rounded-lg ' to='/dashboard'>Dashboard</NavLink></li>
+
+                            {user ? <div className='flex'> <button onClick={() => signOut(auth)}>Logout</button>
+                                <p className='ml-2 mt-2 border-2 p-1 text-secondary'>{user.displayName}</p>
+                            </div> :
+                                <li> <NavLink className='rounded-lg ' to='/login'>Login</NavLink></li>
+                            }
+
                         </ul>
                     </div>
                 </div>
@@ -27,8 +39,15 @@ const Navbar = ({ children }) => {
                 <label for="my-drawer-3" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
                     Sidebar content here
-                    <li><NavLink>Sidebar Item 1</NavLink></li>
-                    <li><NavLink>Sidebar Item 2</NavLink></li>
+                    <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
+                    <li><NavLink className='rounded-lg ' to='/dashboard'>Dashboard</NavLink>
+                    </li>
+
+                    {user ? <div className='flex'> <button onClick={() => signOut(auth)}>Logout</button>
+                        <p className='ml-2 mt-2 border-2 p-1 text-secondary'>{user.displayName}</p>
+                    </div> :
+                        <li> <NavLink className='rounded-lg ' to='/login'>Login</NavLink></li>
+                    }
 
                 </ul>
 

@@ -1,7 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
-    const { name, img, ShortDes, minimumOr, available, ppu } = tool
+    const { _id, name, img, ShortDes, minimumOr, available, ppu } = tool;
+    const navigate = useNavigate()
+
+
     return (
         <div class="card w-96 bg-base-100 shadow-xl mx-auto">
             <figure><img className='max-h-80 ' src={img} alt="Shoes" /></figure>
@@ -21,7 +25,7 @@ const Tool = ({ tool }) => {
                     <p>{available}</p>
                 </div>
                 <div class=" mt-5">
-                    <button class="btn block mx-auto bg-gradient-to-r from-secondary to-primary ">place order</button>
+                    <button onClick={() => navigate(`/purchase/${_id}`)} class="btn text-xl mx-auto bg-gradient-to-r from-secondary to-primary items-center flex">place order</button>
                 </div>
             </div>
         </div >

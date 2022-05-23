@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useTools from '../Shared/useTools';
 import Tool from './Tool';
 
 const Tools = () => {
-    const [tools, setTools] = useState([])
+    const [tools] = useTools()
 
-    useEffect(() => {
-        fetch('Parts.json')
-            .then(res => res.json())
-            .then(data => setTools(data))
-    }, [])
     return (
         <div className='grid md:grid-cols-2 sm:grid-cols-1 gap-y-10'>
-            {tools.map(tool => <Tool key={tool.id} tool={tool}></Tool>)}
+            {tools.map(tool => <Tool key={tool._id} tool={tool}></Tool>)}
         </div>
     );
 };
