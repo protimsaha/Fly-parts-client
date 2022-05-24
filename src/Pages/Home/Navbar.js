@@ -22,8 +22,13 @@ const Navbar = ({ children }) => {
                         <ul className="menu menu-horizontal gap-x-3">
                             <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
                             {user && <li><Link className='rounded-lg' to="/dashboard">Dashboard</Link></li>}
-                            {user ? <div className='flex'> <button onClick={() => signOut(auth)} className="btn btn-ghost">Logout</button>
-                                <p className='ml-2 mt-2 p-1 text-secondary'>{user.displayName}</p>
+                            {user ? <div className='flex'> <button
+                                onClick={() => {
+                                    signOut(auth)
+                                    localStorage.removeItem('accessToken')
+                                }}
+                                className="btn btn-ghost">Logout</button>
+                                <p className='ml-2 mt-2 p-1 text-green-600'>{user.displayName}</p>
                             </div> :
                                 <li> <NavLink className='rounded-lg ' to='/login'>Login</NavLink></li>
                             }

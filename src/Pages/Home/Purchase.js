@@ -12,6 +12,9 @@ const Purchase = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [address, setAddress] = useState('')
     const [disable, setDisable] = useState(false)
+    console.log(toolDetail)
+
+
     useEffect(() => {
         const url = `http://localhost:5000/tools/${id}`
         fetch(url)

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const useToken = () => {
+const Payments = () => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const useToken = () => {
     );
 };
 
-export default useToken;
+export default Payments;

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import auth from './Firebase.init';
 import Loading from '../Shared/Loading';
 import { useForm } from 'react-hook-form';
-import useToken from '../Shared/useToken';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
@@ -29,10 +29,9 @@ const Login = () => {
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
-            console.log(token)
         }
 
-    }, [googleUser, user, navigate, from, token])
+    }, [navigate, from, token])
     if (loading || googleLoading) {
         return <Loading></Loading>
     }
@@ -49,7 +48,7 @@ const Login = () => {
     };
 
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='flex justify-center items-center my-20 h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center font-bold text-xl">Login</h2>
