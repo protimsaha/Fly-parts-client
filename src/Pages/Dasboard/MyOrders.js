@@ -40,11 +40,7 @@ const MyOrders = () => {
                                 {
                                     order.status === 'unpaid' && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-sm btn-success'>pay</button></Link>
                                 }
-                                {/* {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-sm btn-success'>pay</button></Link>}
-                                    {(a.price && a.paid) && <div>
-                                        <span className='text-green-800'>Paid</span>
-                                        <p>Transection ID : {a.transectionId}</p>
-                                    </div>} */}
+
                             </td>
                             <td>
                                 <button className='btn btn-sm btn-success'>Cancel</button>
