@@ -31,7 +31,7 @@ const Signup = () => {
 
     let signInError;
     if (error || gError) {
-        signInError = <p>{error?.message || gError?.message || updateError.message}</p>
+        signInError = <p>{error?.message || gError?.message || updateError?.message}</p>
     }
 
     if (token) {

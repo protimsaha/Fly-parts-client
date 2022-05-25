@@ -12,8 +12,6 @@ const Purchase = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [address, setAddress] = useState('')
     const [disable, setDisable] = useState(false)
-    console.log(toolDetail)
-
 
     useEffect(() => {
         const url = `http://localhost:5000/tools/${id}`
@@ -55,6 +53,7 @@ const Purchase = () => {
             address: address,
             productName: toolDetail.name,
             orderValue: order,
+            cost: order * toolDetail.ppu,
             status: 'unpaid'
         }
         axios.post('http://localhost:5000/orders', purchaseData)

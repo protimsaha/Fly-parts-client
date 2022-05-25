@@ -22,7 +22,7 @@ const MyProfile = () => {
             phone: phone,
             linkdin: linkdin
         }
-        axios.post('http://localhost:5000/users', profile)
+        axios.put(`http://localhost:5000/user/:${user.email}`, profile)
             .then(res => console.log(res))
     }
 

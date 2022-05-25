@@ -5,7 +5,10 @@ import auth from '../Auth/Firebase.init';
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([])
+    console.log(myOrders)
     const [user] = useAuthState(auth)
+
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders?email=${user.email}`, {
@@ -40,10 +43,13 @@ const MyOrders = () => {
                                 {
                                     order.status === 'unpaid' && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-sm btn-success'>pay</button></Link>
                                 }
+                                {/* {
+                                    order.status === 'pending' && <button className='btn btn-sm btn-success'>Paid</button>
+                                } */}
 
                             </td>
                             <td>
-                                <button className='btn btn-sm btn-success'>Cancel</button>
+                                <button disabled={order.status === 'pending'} className='btn btn-sm btn-success'>Cancel</button>
                             </td>
                         </tr>)
                     }
