@@ -16,7 +16,7 @@ const Dasboard = () => {
                 <Outlet></Outlet>
             </div>
             <div className="drawer-side">
-                <label for="my-drawer-2" className="drawer-overlay"></label>
+                <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
                     <li><Link to='/dashboard'>My Dashboard</Link></li>
                     {!admin &&
@@ -26,7 +26,12 @@ const Dasboard = () => {
                         </>
                     }
                     <li><Link to='/dashboard/my-profile'>My Profile</Link></li>
-                    {admin && <li><Link to='/dashboard/all-users'>All Users</Link></li>}
+                    {admin &&
+                        <>
+                            <li><Link to='/dashboard/all-users'>All Users</Link></li>
+                            <li><Link to='/dashboard/addProduct'>Add product</Link></li>
+                        </>
+                    }
 
                 </ul>
 

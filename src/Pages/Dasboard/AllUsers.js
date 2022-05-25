@@ -1,4 +1,3 @@
-// import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import User from './User';
@@ -16,17 +15,10 @@ const AllUsers = () => {
         return <Loading></Loading>
     }
 
-    // const [users, setUsers] = useState([])
-
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/users')
-    //         .then(res => res.json())
-    //         .then(data => setUsers(data))
-    // }, [])
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>No.</th>
