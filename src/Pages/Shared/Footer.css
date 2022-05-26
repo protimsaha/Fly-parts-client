@@ -1,5 +1,6 @@
 .foot {
-    background-image: url(../../image/engine\ footer.jpg);
-    /* mask-image: -moz-linear-gradient(.jpg); */
-    opacity: calc(80%);
+    background-image: url(../../image/fighter\ jet.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: calc(80%); */
 }

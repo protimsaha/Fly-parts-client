@@ -47,10 +47,16 @@ const Navbar = ({ children }) => {
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
 
                     <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
-
+                    <li><NavLink className='rounded-lg ' to='/blog'>Blog</NavLink></li>
+                    <li><NavLink className='rounded-lg ' to='/portfolio'>Portfolio</NavLink></li>
                     {user && <li><Link className='rounded-lg' to="/dashboard">Dashboard</Link></li>}
-                    {user ? <div className='flex'> <button onClick={() => signOut(auth)}>Logout</button>
-                        <p className='ml-2 mt-2 border-2 p-1 text-secondary'>{user.displayName}</p>
+                    {user ? <div className='flex'> <button
+                        onClick={() => {
+                            signOut(auth)
+                            localStorage.removeItem('accessToken')
+                        }}
+                        className="btn btn-ghost">Logout</button>
+                        {user && <p className='ml-2 text-xl font-medium mt-1 p-1 text-green-600'>{user.displayName}</p>}
                     </div> :
                         <li> <NavLink className='rounded-lg ' to='/login'>Login</NavLink></li>
                     }
