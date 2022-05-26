@@ -12,6 +12,7 @@ const Navbar = ({ children }) => {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 <div className="w-full navbar bg-base-100 ">
+                    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Dashboard</label>
                     <Link to='/' className="flex-1 text-2xl font-bold px-2 mx-2 text-secondary">FLY PARTS</Link>
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">

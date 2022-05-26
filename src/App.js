@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/Auth/Login";
 import Home from "./Pages/Home/Home";
 import Navbar from "./Pages/Home/Navbar";
-import Footer from "./Pages/Shared/Footer";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Signup from "./Pages/Auth/Signup.js";
@@ -16,11 +15,9 @@ import AllUsers from "./Pages/Dasboard/AllUsers";
 import RequireAdmin from "./Pages/Auth/RequireAdmin";
 import AddProduct from "./Pages/Dasboard/AddProduct";
 import ManageProducts from "./Pages/Dasboard/ManageProducts";
-// import Payments from "./Pages/Dasboard/Payments";
 import Notfound from "./Pages/Shared/Notfound";
 import Blog from "./Pages/Other/Blog";
 import Portfolio from "./Pages/Other/Portfolio";
-// import Payment from "./Pages/Dasboard/Payment";
 import Pay from "./Pages/Dasboard/Pay";
 import ManageAllOrders from "./Pages/Dasboard/ManageAllOrders";
 
@@ -60,7 +57,7 @@ function App() {
           </Route>
           <Route path="*" element={<Notfound></Notfound>}></Route>
         </Routes>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
         <ToastContainer />
       </Navbar>
     </div>
