@@ -20,13 +20,13 @@ const MyOrders = () => {
 
 
     const handleCancel = id => {
-        axios.delete(`http://localhost:5000/orders/${id}`)
+        axios.delete(`https://limitless-chamber-81011.herokuapp.com/orders/${id}`)
             .then(res => console.log(res))
         setLoading(true)
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+        fetch(`https://limitless-chamber-81011.herokuapp.com/orders?email=${user.email}`, {
             method: 'GET',
             headers: {
                 // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

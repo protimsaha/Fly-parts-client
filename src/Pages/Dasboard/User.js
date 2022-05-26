@@ -6,7 +6,7 @@ const User = ({ user, index, refetch }) => {
 
     const updateRole = () => {
 
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://limitless-chamber-81011.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

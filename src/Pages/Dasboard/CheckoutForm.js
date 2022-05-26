@@ -16,7 +16,7 @@ const CheckoutForm = ({ detail }) => {
 
     useEffect(() => {
         if (cost) {
-            fetch('http://localhost:5000/create-payment-intent', {
+            fetch('https://limitless-chamber-81011.herokuapp.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -84,7 +84,7 @@ const CheckoutForm = ({ detail }) => {
                 transactionId: paymentIntent.id
             }
             console.log(transactionId)
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://limitless-chamber-81011.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

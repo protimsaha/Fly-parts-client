@@ -32,7 +32,7 @@ const AddProduct = () => {
                         img: img
                     }
                     console.log(tool)
-                    fetch('http://localhost:5000/tools', {
+                    fetch('https://limitless-chamber-81011.herokuapp.com/tools', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

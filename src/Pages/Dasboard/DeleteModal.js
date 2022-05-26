@@ -5,7 +5,7 @@ const DeleteModal = ({ deleteTool }) => {
 
     const handleDelete = id => {
         console.log(id)
-        axios.delete(`http://localhost:5000/tools/${id}`)
+        axios.delete(`https://limitless-chamber-81011.herokuapp.com/tools/${id}`)
             .then(res => console.log(res))
 
     }

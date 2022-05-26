@@ -13,7 +13,7 @@ const Pay = () => {
     const [detail, setDetail] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${payId}`, {
+        fetch(`https://limitless-chamber-81011.herokuapp.com/orders/${payId}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -15,7 +15,7 @@ const Purchase = () => {
     const [disable, setDisable] = useState(false)
 
     useEffect(() => {
-        const url = `http://localhost:5000/tools/${id}`
+        const url = `https://limitless-chamber-81011.herokuapp.com/tools/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setToolDetail(data))
@@ -60,7 +60,7 @@ const Purchase = () => {
             cost: order * toolDetail.ppu,
             status: 'unpaid'
         }
-        axios.post('http://localhost:5000/orders', purchaseData)
+        axios.post('https://limitless-chamber-81011.herokuapp.com/orders', purchaseData)
             .then(res => {
                 toast.success('Purchaed order complete')
                 setPhoneNumber('')

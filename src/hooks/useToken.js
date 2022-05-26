@@ -9,7 +9,7 @@ const useToken = (user) => {
         console.log(user?.user, displayName)
         const currentUser = { email: email, displayName: displayName }
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://limitless-chamber-81011.herokuapp.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

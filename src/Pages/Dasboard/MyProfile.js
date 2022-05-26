@@ -22,7 +22,7 @@ const MyProfile = () => {
             phone: phone,
             linkdin: linkdin
         }
-        axios.put(`http://localhost:5000/user/:${user.email}`, profile)
+        axios.put(`https://limitless-chamber-81011.herokuapp.com/user/:${user.email}`, profile)
             .then(res => console.log(res))
     }
 
