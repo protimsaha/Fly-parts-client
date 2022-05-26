@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('https://limitless-chamber-81011.herokuapp.com/order/orders')
+        fetch('https://limitless-chamber-81011.herokuapp.com/order')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
