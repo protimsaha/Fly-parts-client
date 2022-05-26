@@ -64,6 +64,12 @@ const Portfolio = () => {
                                         <p>9.Express js</p>
                                         <p>10.MongoDB</p>
                                     </div>
+                                    <div>
+                                        <h1>My 3 Projetcs</h1>
+                                        <p>https://assignment-11-eb5e6.web.app/</p>
+                                        <p>https://assignment-10-6ef43.web.app/</p>
+                                        <p>https://ema-john-simple-7685e.web.app/</p>
+                                    </div>
 
 
                                 </div>
