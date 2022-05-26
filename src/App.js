@@ -22,6 +22,7 @@ import Blog from "./Pages/Other/Blog";
 import Portfolio from "./Pages/Other/Portfolio";
 // import Payment from "./Pages/Dasboard/Payment";
 import Pay from "./Pages/Dasboard/Pay";
+import ManageAllOrders from "./Pages/Dasboard/ManageAllOrders";
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             <Route path="addProduct" element={<RequireAdmin><AddProduct>
             </AddProduct></RequireAdmin>}></Route>
             <Route path="manageProduct" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
+            <Route path="allorders" element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
           </Route>
           <Route path="*" element={<Notfound></Notfound>}></Route>
         </Routes>

@@ -11,8 +11,8 @@ const DisplayReview = () => {
                     <div key={review._id} className="">
                         <div className="card  bg-base-100 shadow-xl mt-8">
                             <div className="card-body">
-                                <div className='flex items-center'>
-                                    <h1>{review.displayName}</h1>
+                                <div className=' items-center'>
+                                    <h1 className='text-3xl text-slate-600 font-medium'>{review.displayName}</h1>
                                     <p className='text-xl text-secondary'>{review.location}</p>
                                 </div>
                                 <div>

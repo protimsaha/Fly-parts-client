@@ -3,13 +3,27 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../Auth/Firebase.init';
+// import Loading from '../Shared/Loading'
+
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([])
-    console.log(myOrders)
     const [user] = useAuthState(auth)
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        if (loading) {
+            return <p>Loading</p>
+        }
+    }, [loading])
 
 
+
+    const handleCancel = id => {
+        axios.delete(`http://localhost:5000/orders/${id}`)
+            .then(res => console.log(res))
+        setLoading(true)
+    }
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders?email=${user.email}`, {
@@ -20,13 +34,11 @@ const MyOrders = () => {
         })
             .then(res => res.json())
             .then(data => setMyOrders(data))
+        setLoading(false)
     }, [user.email])
 
 
-    const handleCancel = id => {
 
-        console.log(id)
-    }
 
     return (
         <div class="overflow-x-auto my-10 mx-auto w-4/5 ">
