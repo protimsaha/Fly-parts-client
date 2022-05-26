@@ -14,7 +14,7 @@ const MyOrders = () => {
         fetch(`http://localhost:5000/orders?email=${user.email}`, {
             method: 'GET',
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ const MyOrders = () => {
                                     order.status === 'unpaid' && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-sm btn-success'>pay</button></Link>
                                 }
                                 {/* {
-                                    order.status === 'pending' && <button className='btn btn-sm btn-success'>Paid</button>
+                                    order.status === true && <button className='btn btn-sm btn-success'>Paid</button>
                                 } */}
 
                             </td>

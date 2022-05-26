@@ -15,10 +15,6 @@ const Portfolio = () => {
                         <div class="overflow-x-auto">
                             <h2 className='text-2xl mt-10'>Educational background</h2>
                             <div className=''>
-
-
-
-
                                 <div className='overflow-x-hidden'>
                                     <table class="table table-zebra w-96  sm:max-w-sm">
                                         <thead>
@@ -53,6 +49,23 @@ const Portfolio = () => {
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                                <div className='mt-5'>
+                                    <h2 className='text-2xl text-slate-600 font-medium'>Technologies I know :</h2>
+                                    <div className='text-xl font-medium'>
+                                        <p>1.HTML5</p>
+                                        <p>2.CSS3</p>
+                                        <p>3.Bootstrap</p>
+                                        <p>4.Tailwind Css</p>
+                                        <p>5.JavaScript</p>
+                                        <p>6.React js</p>
+                                        <p>7.Firebase</p>
+                                        <p>8.Node js</p>
+                                        <p>9.Express js</p>
+                                        <p>10.MongoDB</p>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
