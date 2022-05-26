@@ -9,7 +9,7 @@ const CheckoutForm = ({ detail }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    console.log(clientSecret)
+
 
     const { cost, name, email, _id } = detail
     const costInt = parseFloat(cost)
@@ -32,7 +32,7 @@ const CheckoutForm = ({ detail }) => {
                 });
         }
 
-    }, [cost])
+    }, [costInt, cost])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -83,7 +83,7 @@ const CheckoutForm = ({ detail }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            console.log(transactionId);
+            console.log(transactionId)
             fetch(`http://localhost:5000/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
@@ -126,7 +126,7 @@ const CheckoutForm = ({ detail }) => {
                 cardError && <p className='text-red-500'>{cardError}</p>
             }
             {
-                success && <div className='text-green-500'>
+                success && <div className='text-xl text-white'>
                     <p>{success}  </p>
                     <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
                 </div>

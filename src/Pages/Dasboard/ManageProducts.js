@@ -30,7 +30,7 @@ const ManageProducts = () => {
                             <td>{index + 1}</td>
                             <td>{tool.name}</td>
                             <td>
-                                <label onClick={() => setDeleteTool(tool)} for="my-modal-6" class="btn modal-button">open modal</label>
+                                <label onClick={() => setDeleteTool(tool)} for="my-modal-6" class="btn modal-button bg-red-500">Remove</label>
                             </td>
                             {deleteTool && <DeleteModal deleteTool={deleteTool}></DeleteModal>}
                         </tr>)

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="hero lg:px-12 h-[60vh] bg-base-100 ">
+        <div className="hero lg:px-12 min-h-[60vh]  bg-base-100 ">
             <div className="hero-content flex-col lg:flex-row">
                 <img src="https://s28490.pcdn.co/wp-content/uploads/2019/05/eng-vedeneyev.jpg" className=" rounded-lg shadow-2xl" alt='' />
                 <div>

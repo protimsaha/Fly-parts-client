@@ -1,0 +1,5 @@
+.foot {
+    background-image: url(../../image/engine\ footer.jpg);
+    /* mask-image: -moz-linear-gradient(.jpg); */
+    opacity: calc(80%);
+}

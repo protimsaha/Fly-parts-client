@@ -1,10 +1,11 @@
 import React from 'react';
 import appstore from '../../image/playstore.jpg'
+import './Footer.css'
 
 
 const Footer = () => {
     return (
-        <div className='bg-accent py-5 px-5'>
+        <div className='bg-accent py-5 px-5 foot' >
             <h1 className='text-4xl font-semibold text-center my-10 border-white rounded-md'>FLY PARTS</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3'>
                 <div className='my-5'>

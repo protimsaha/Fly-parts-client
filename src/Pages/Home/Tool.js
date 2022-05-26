@@ -8,10 +8,10 @@ const Tool = ({ tool }) => {
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
-            <figure><img className='max-h-80 ' src={img} alt="Shoes" /></figure>
+            <figure><img className='max-h-80 rounded-xl mt-4' src={img} alt="Shoes" /></figure>
             <div className="p-5">
-                <h2 className="text-2xl font-semibold text-slate-500">{name}</h2>
-                <p>{ShortDes}</p>
+                <h2 className="text-4xl font-semibold text-slate-500">{name}</h2>
+                <p className='mt-2'>{ShortDes}</p>
                 <div className='flex text-xl font-semibold  justify-between mt-3'>
                     <p>Price per unit: </p>
                     <p>{ppu}</p>

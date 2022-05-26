@@ -24,7 +24,7 @@ const Pay = () => {
     }, [payId])
 
     return (
-        <div class="card mx-auto my-10 w-96 bg-primary text-primary-content">
+        <div class="card mx-auto my-10 w-1/2 bg-primary text-primary-content">
             <div class="card-body">
                 <h2 className='text-4xl font-bold text-green-600'>Hello , {detail.name}</h2>
                 <h2 class="card-title ">Pay for <span className='text-orange-600'>{detail.productName}</span></h2>
