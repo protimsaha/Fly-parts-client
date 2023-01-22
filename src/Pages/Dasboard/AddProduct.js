@@ -55,9 +55,9 @@ const AddProduct = () => {
 
 
     return (
-        <div>
-            <h2 className="text-3xl text-center text-accent">Add New Products</h2>
-            <form className='lg:w-1/2 sm:w-full sm:px-4 mx-auto my-14 shadow-lg p-10 w-full' onSubmit={handleSubmit(onSubmit)}>
+        <div className='lg:w-1/2 sm:w-full sm:px-4 mx-auto my-14 shadow-lg p-10 mt-40 w-full'>
+            <h2 className="text-3xl text-center text-accent ">Add New Products</h2>
+            <form className='' onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="form-control mx-auto w-full max-w-xs">
                     <label className="label">
