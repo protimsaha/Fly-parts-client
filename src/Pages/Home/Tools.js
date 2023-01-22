@@ -7,7 +7,7 @@ const Tools = () => {
 
     return (
         <div className='grid md:grid-cols-2 sm:grid-cols-1 gap-y-10'>
-            {tools.map(tool => <Tool key={tool._id} tool={tool}></Tool>)}
+            {tools && tools.map(tool => <Tool key={tool._id} tool={tool}></Tool>)}
         </div>
     );
 };

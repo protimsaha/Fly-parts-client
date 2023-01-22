@@ -13,7 +13,7 @@ const AddReview = () => {
             location: event.target.location.value,
             review: event.target.review.value
         }
-        axios.post('https://limitless-chamber-81011.herokuapp.com/reviews', review)
+        axios.post('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/reviews', review)
             .then(res => console.log(res))
     }
     return (

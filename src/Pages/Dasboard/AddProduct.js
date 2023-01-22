@@ -32,7 +32,7 @@ const AddProduct = () => {
                         img: img
                     }
                     console.log(tool)
-                    fetch('https://limitless-chamber-81011.herokuapp.com/tools', {
+                    fetch('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/tools', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

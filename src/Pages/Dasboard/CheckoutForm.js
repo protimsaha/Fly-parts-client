@@ -16,7 +16,7 @@ const CheckoutForm = ({ detail }) => {
 
     useEffect(() => {
         if (cost) {
-            fetch('https://limitless-chamber-81011.herokuapp.com/create-payment-intent', {
+            fetch('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -84,7 +84,7 @@ const CheckoutForm = ({ detail }) => {
                 transactionId: paymentIntent.id
             }
             console.log(transactionId)
-            fetch(`https://limitless-chamber-81011.herokuapp.com/orders/${_id}`, {
+            fetch(`https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

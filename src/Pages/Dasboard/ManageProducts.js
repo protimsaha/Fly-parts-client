@@ -7,7 +7,7 @@ const ManageProducts = () => {
     const [tools, setTools] = useState([])
 
     useEffect(() => {
-        fetch('https://limitless-chamber-81011.herokuapp.com/tools')
+        fetch('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/tools')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [tools])

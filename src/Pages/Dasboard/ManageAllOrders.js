@@ -5,13 +5,13 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('https://limitless-chamber-81011.herokuapp.com/order')
+        fetch('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/order')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
 
     const updateShipping = id => {
-        axios.put(`https://limitless-chamber-81011.herokuapp.com/orders/${id}`)
+        axios.put(`https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/orders/${id}`)
             .then(res => console.log(res))
     }
 
