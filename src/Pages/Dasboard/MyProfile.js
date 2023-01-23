@@ -22,7 +22,7 @@ const MyProfile = () => {
             phone: phone,
             linkdin: linkdin
         }
-        axios.put(`https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/user/:${user.email}`, profile)
+        axios.put(`https://fly-parts-server.vercel.app/user/:${user.email}`, profile)
             .then(res => console.log(res))
     }
 

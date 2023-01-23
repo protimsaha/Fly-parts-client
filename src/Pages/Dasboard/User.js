@@ -6,7 +6,7 @@ const User = ({ user, index, refetch }) => {
 
     const updateRole = () => {
 
-        fetch(`https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/user/admin/${email}`, {
+        fetch(`https://fly-parts-server.vercel.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

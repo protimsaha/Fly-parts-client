@@ -5,7 +5,7 @@ const DeleteModal = ({ deleteTool }) => {
 
     const handleDelete = id => {
         console.log(id)
-        axios.delete(`https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/tools/${id}`)
+        axios.delete(`https://fly-parts-server.vercel.app/tools/${id}`)
             .then(res => console.log(res))
 
     }

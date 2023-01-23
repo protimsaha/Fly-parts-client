@@ -32,7 +32,7 @@ const AddProduct = () => {
                         img: img
                     }
                     console.log(tool)
-                    fetch('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/tools', {
+                    fetch('https://fly-parts-server.vercel.app/tools', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

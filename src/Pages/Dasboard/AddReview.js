@@ -13,7 +13,7 @@ const AddReview = () => {
             location: event.target.location.value,
             review: event.target.review.value
         }
-        axios.post('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/reviews', review)
+        axios.post('https://fly-parts-server.vercel.app/reviews', review)
             .then(res => console.log(res))
     }
     return (

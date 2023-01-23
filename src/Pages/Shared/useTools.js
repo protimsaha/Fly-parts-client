@@ -4,7 +4,7 @@ const useTools = () => {
     const [tools, setTools] = useState([])
 
     useEffect(() => {
-        fetch('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/tools')
+        fetch('https://fly-parts-server.vercel.app/tools')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])

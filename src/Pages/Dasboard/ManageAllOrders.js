@@ -5,13 +5,13 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/order')
+        fetch('https://fly-parts-server.vercel.app/order')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
 
     const updateShipping = id => {
-        axios.put(`https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/orders/${id}`)
+        axios.put(`https://fly-parts-server.vercel.app/orders/${id}`)
             .then(res => console.log(res))
     }
 

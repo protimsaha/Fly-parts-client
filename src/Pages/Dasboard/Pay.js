@@ -13,7 +13,7 @@ const Pay = () => {
     const [detail, setDetail] = useState({})
 
     useEffect(() => {
-        fetch(`https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/orders/${payId}`, {
+        fetch(`https://fly-parts-server.vercel.app/orders/${payId}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

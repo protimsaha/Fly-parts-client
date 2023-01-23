@@ -15,7 +15,7 @@ const Purchase = () => {
     const [disable, setDisable] = useState(false)
 
     useEffect(() => {
-        const url = `https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/tools/${id}`
+        const url = `https://fly-parts-server.vercel.app/tools/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setToolDetail(data))
@@ -60,7 +60,7 @@ const Purchase = () => {
             cost: order * toolDetail.ppu,
             status: 'unpaid'
         }
-        axios.post('https://fly-parts-server-40rrtmcya-protimsaha.vercel.app/orders', purchaseData)
+        axios.post('https://fly-parts-server.vercel.app/orders', purchaseData)
             .then(res => {
                 toast.success('Purchaed order complete')
                 setPhoneNumber('')
